@@ -1,0 +1,77 @@
+/* Estilos generales del sidebar */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #1b3b63;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile h3 {
+  margin: 5px 0;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.profile p {
+  color: #b0c4de;
+  font-size: 14px;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.menu-item i {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.menu-item:hover {
+  background-color: yellow;
+  color: #333333; /* Cambia el color de texto en hover */
+}
+
+.active {
+  background-color: yellow;
+  color: #333333; /* Cambia el color de texto en activo */
+}
+
+/* Espacio adicional después de la opción "Reporte" */
+.menu-item:nth-child(3) {
+  margin-bottom: 200px; /* Ajusta el valor para controlar el espacio */
+}

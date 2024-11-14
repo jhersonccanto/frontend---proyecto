@@ -1,0 +1,3 @@
+::ng-deep .custom-icon-color .pi-filter-fill {
+    color: orange; /* Cambia el color del ícono a naranja */
+  }
