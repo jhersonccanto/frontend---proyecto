@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { SolicitudesComponent } from './solicitudes/solicitudes.component';
 import { DocumentacionComponent } from './documentacion/documentacion.component';
 import { ReporteComponent } from './reporte/reporte.component';
-import { HomeComponent } from './home/home.component';
+import { PracticaComponent } from './practica/practica.component';
+import { PracticaDetalleComponent } from './practica-detalle/practica-detalle.component';
 
 export const routes: Routes = [
     { 
@@ -11,8 +11,12 @@ export const routes: Routes = [
         pathMatch: 'full' 
     },
     { 
-        path: 'solicitudes', 
-        component: SolicitudesComponent 
+        path: 'practica', 
+        component: PracticaComponent 
+    },
+    { 
+        path: 'practica-detalle', 
+        component: PracticaDetalleComponent
     },
     { 
         path: 'documentacion', 
