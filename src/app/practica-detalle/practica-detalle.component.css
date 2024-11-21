@@ -22,6 +22,60 @@
   z-index: 1000; /*desvanecimiento del formulario*/
 }
 
+/* Botón de cierre */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cuadrado alrededor de la "X" */
+.close-square {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #f0ad4e;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Líneas de la "X" */
+.close-line {
+  position: absolute;
+  width: 12px;
+  height: 2px;
+  background-color: #f0ad4e;
+}
+
+.line-1 {
+  transform: rotate(45deg);
+}
+
+.line-2 {
+  transform: rotate(-45deg);
+}
+
+/* Animación al pasar el mouse */
+.close-button:hover .close-square {
+  border-color: #ff0000;
+}
+
+/* Animación al pasar el mouse */
+.close-button:hover .close-line {
+  background-color: #ff0000;
+}
+
 h2 {
   margin-top: 15px; /* Ajusta el valor para definir el margen de arriba */
 }
@@ -145,4 +199,96 @@ h2 {
 
 .btn-success:hover {
   background-color: #218838; /* Color al pasar el mouse */
+}
+
+/* Modal de confirmación */
+.modal-confirmation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  width: 300px;
+}
+
+.confirmation-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.modal-notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  width: 300px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-notification h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.modal-notification .btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-notification .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Animación para el modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }

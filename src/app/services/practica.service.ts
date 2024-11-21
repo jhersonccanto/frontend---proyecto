@@ -9,7 +9,7 @@ import { Practica } from '../models/practica';
 
 export class PracticaService {
 
-  private apiUrl = 'http://localhost:8080/api/practica'; // URL del backend para obtener las prácticas
+  private apiUrl = 'http://localhost:8080/api/solicitud'; // URL del backend para obtener las prácticas
 
   constructor(private http: HttpClient) {}
 
@@ -17,4 +17,10 @@ export class PracticaService {
   getPracticas(): Observable<Practica[]> {
     return this.http.get<Practica[]>(this.apiUrl);
   }
+
+// Obtener el detalle de una práctica por ID
+getPracticaDetalleById(id: number): Observable<any> {
+  return this.http.get<any>(`${this.apiUrl}/detalle/${id}`);
+}
+
 }

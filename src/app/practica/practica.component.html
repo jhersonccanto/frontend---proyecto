@@ -49,8 +49,8 @@
               <i *ngIf="solicitud.estado === 'rejected'" class="pi pi-times-circle" style="color: red;"></i> -->
             </td>
             <td style="padding: 10px;">
-              <button (click)="abrirModal()" class="btn btn-link">
-                <i class="pi pi-eye"></i>
+              <button (click)="verDetalle(practica.idPractica)" class="btn btn-link">
+                <i class="pi pi-eye" alt="Ver Detalle"></i>
               </button>
             </td>
           </tr>
@@ -59,4 +59,6 @@
     </div>
   </div>
   
-  <app-practica-detalle *ngIf="modalAbierta" (close)="cerrarModal()"></app-practica-detalle>
+  <app-practica-detalle *ngIf="mostrarDetalle"
+  [id]="idSeleccionado"
+  (close)="cerrarModal()"></app-practica-detalle>

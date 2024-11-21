@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PracticaService } from '../services/practica.service';
-import { Practica } from '../models/practica';
 import { PracticaDetalleComponent } from '../practica-detalle/practica-detalle.component';
 
 @Component({
@@ -15,23 +14,31 @@ import { PracticaDetalleComponent } from '../practica-detalle/practica-detalle.c
   styleUrl: './practica.component.css'
 })
 export class PracticaComponent implements OnInit{
-  practicas: Practica[] = []; // Variable tipada como un arreglo de Solicitud
+  practicas: any[] = []; // Variable tipada como un arreglo de Practica
   value: string = ''; // Variable vinculada con ngModel para el campo de búsqueda
+  mostrarDetalle: boolean = false; // Controla la visibilidad del modal
+  idSeleccionado: number | null = null; // Permitir que sea null
+ // Almacena el ID seleccionado
+
   constructor(private practicaService: PracticaService) {}
 
-  modalAbierta = false;
+  
 
   ngOnInit(): void {
     this.practicaService.getPracticas().subscribe((data) => {
+      console.log('Listado de prácticas:', data); // Verifica que cada práctica tenga un atributo id
       this.practicas = data; // La respuesta del backend se asigna a 'practicas'
     });
   }
 
-  abrirModal() {
-    this.modalAbierta = true;
+  verDetalle(id: number): void {
+    console.log('ID seleccionado:', id); // Verifica el ID
+    this.idSeleccionado = id; // Asigna el ID seleccionado
+    this.mostrarDetalle = true; // Muestra el modal
   }
 
-  cerrarModal() {
-    this.modalAbierta = false;
+  cerrarModal(): void {
+    this.mostrarDetalle = false; // Oculta el modal
+    this.idSeleccionado = null; // Limpia el ID seleccionado
   }
 }
