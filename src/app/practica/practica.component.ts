@@ -31,6 +31,25 @@ export class PracticaComponent implements OnInit{
     });
   }
 
+  // Método para buscar por código
+  buscarPorCodigo(): void {
+    const codigo = this.value.trim(); // Código ingresado por el usuario
+    if (codigo) {
+      this.practicaService.buscarSolicitudesPorCodigo(codigo).subscribe({
+        next: (data) => {
+          this.practicas = data; // Actualiza la tabla con los resultados de búsqueda
+        },
+        error: (err) => {
+          console.error('Error al buscar las solicitudes:', err);
+          this.practicas = []; // Limpia la tabla si no hay resultados
+        }
+      });
+    } else {
+      this.loadPractices(); // Si no hay código ingresado, carga todas las solicitudes
+    }
+  }
+  
+
   verDetalle(id: number): void {
     console.log('ID seleccionado:', id); // Verifica el ID
     this.idSeleccionado = id; // Asigna el ID seleccionado
@@ -40,5 +59,16 @@ export class PracticaComponent implements OnInit{
   cerrarModal(): void {
     this.mostrarDetalle = false; // Oculta el modal
     this.idSeleccionado = null; // Limpia el ID seleccionado
+  }
+
+  loadPractices(): void {
+    this.practicaService.getPracticas().subscribe({
+      next: (data) => {
+        this.practicas = data;
+      },
+      error: (err) => {
+        console.error('Error al cargar las prácticas:', err);
+      }
+    });
   }
 }

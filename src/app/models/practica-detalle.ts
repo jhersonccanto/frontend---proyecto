@@ -5,11 +5,10 @@ export class PracticaDetalle {
   direccionEmpresa: string;
   correoEmpresa: string;
   nombreLinea: string;
-  nombrePersona: string;
-  apellidoPersona: string;
+  nombreRepresentante: string;
   cargoRepresentante: string;
-  correoPersona: string;
-  telefonoPersona: string;
+  correoRepresentante: string;
+  telefonoRepresentante: string;
 
   constructor(
     nombreEmpresa: string = '',
@@ -17,21 +16,19 @@ export class PracticaDetalle {
     direccionEmpresa: string = '',
     correoEmpresa: string = '',
     nombreLinea: string = '',
-    nombrePersona: string = '',
-    apellidoPersona: string = '',
+    nombreRepresentante: string = '',
     cargoRepresentante: string = '',
-    correoPersona: string = '',
-    telefonoPersona: string = ''
+    correoRepresentante: string = '',
+    telefonoRepresentante: string = ''
   ) {
     this.nombreEmpresa = nombreEmpresa;
     this.rucEmpresa = rucEmpresa;
     this.direccionEmpresa = direccionEmpresa;
     this.correoEmpresa = correoEmpresa;
     this.nombreLinea = nombreLinea;
-    this.nombrePersona = nombrePersona;
-    this.apellidoPersona = apellidoPersona;
+    this.nombreRepresentante = nombreRepresentante;
     this.cargoRepresentante = cargoRepresentante;
-    this.correoPersona = correoPersona;
-    this.telefonoPersona = telefonoPersona;
+    this.correoRepresentante = correoRepresentante;
+    this.telefonoRepresentante = telefonoRepresentante;
   }
 }

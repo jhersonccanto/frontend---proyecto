@@ -39,10 +39,11 @@ export class PracticaDetalleComponent implements OnInit{
             lineaTrabajo: data.nombreLinea,
           };
           this.representante = {
-            nombreCompleto: `${data.nombrePersona} ${data.apellidoPersona}`,
+            /*nombreCompleto: `${data.nombrePersona} ${data.apellidoPersona}`,*/
+            nombre: data.nombreRepresentante,
             cargo: data.cargoRepresentante,
-            correo: data.correoPersona,
-            telefono: data.telefonoPersona,
+            correo: data.correoRepresentante,
+            telefono: data.telefonoRepresentante,
           };
         },
         error: (err) => {
@@ -53,7 +54,7 @@ export class PracticaDetalleComponent implements OnInit{
       console.error('ID inválido:', this.id);
     }
   }
-
+  
   guardar(): void{
     if (!this.estadoSeleccionado) {
       this.notificationMessage = 'Por favor selecciona una opción antes de guardar.';
@@ -66,26 +67,38 @@ export class PracticaDetalleComponent implements OnInit{
     this.showModal = false;
   }
 
+  @Output() estadoActualizado = new EventEmitter<void>(); // Evento para notificar el cambio
+
   continuar(): void{
-    // Si confirma, mostramos el mensaje de éxito
-    this.showConfirmation = false;
-    this.notificationMessage =
-      this.estadoSeleccionado === 'desaprobado'
-        ? 'La solicitud fue desaprobada con éxito.'
-        : 'La solicitud fue aprobada con éxito.';
-    this.showNotification = true;
+    if (this.id !== null && this.estadoSeleccionado) {
+      const idEstadoPPP = this.estadoSeleccionado === 'aprobado' ? 2 : 1;
+  
+      this.practicaDetalleService.actualizarEstado(this.id, idEstadoPPP).subscribe({
+        next: (response) => {
+          console.log('Estado actualizado:', response);
+          this.notificationMessage = response.message;
+          this.showNotification = true;
+          this.showConfirmation = false;
+  
+          this.estadoActualizado.emit(); // Emite el evento para notificar al componente padre
+        },
+        error: (err) => {
+          console.error('Error al actualizar el estado:', err);
+          this.notificationMessage = 'Error al actualizar el estado. Intente nuevamente.';
+          this.showNotification = true;
+          this.showConfirmation = false;
+        },
+      });
+    }
   }
 
   cancelar(): void {
-    // Si cancela, volvemos al modal principal
-    this.showConfirmation = false;
-    this.showModal = true;
+    this.showConfirmation = false; // Cierra el modal de confirmación
   }
 
   closeNotification(): void {
-    // Cierra el modal de notificación
-    this.showNotification = false;
-    this.showModal = false;
+    this.showNotification = false; // Cierra el modal de notificación
+  this.close.emit(); // Cierra el modal principal
   }
   
   closeModal(): void {

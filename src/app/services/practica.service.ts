@@ -23,4 +23,10 @@ getPracticaDetalleById(id: number): Observable<any> {
   return this.http.get<any>(`${this.apiUrl}/detalle/${id}`);
 }
 
+// Buscar solicitudes por código
+buscarSolicitudesPorCodigo(codigo: string): Observable<any[]> {
+  return this.http.get<any[]>(`${this.apiUrl}/buscar/${codigo}`);
+}
+
+
 }

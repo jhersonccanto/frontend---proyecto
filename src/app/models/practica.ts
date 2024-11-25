@@ -1,22 +1,55 @@
 export class Practica {
 
     idPractica: number;
-  practicante: string;
-  codigo: string;
-  fecha: string;
-  empresa: string;
-  linea: string;
-  representanteLegal: string;
-  estado: string;
+  nombrePersona: string;
+  apellidoPersona: string;
+  codigoPersona: string;
+  nombreEmpresa: string;
+  nombreLinea: string;
+  planPlan: string;
+  nombreCarrera: string;
+  tipoSupervisor: string;
+  fechaInicioPractica: string;
+  fechaFinPractica: string;
+  horasPlanPractica: string;
+  notaAcademicaPractica: string;
+  notaEmpresarialPractica: string;
+  ponderadoFinalPractica: string;
+  estadoEstado: string;
 
-    constructor(idPractica: number = 0, practicante: string = '', codigo: string = '', fecha: string = '', empresa: string = '', linea: string = '', representanteLegal: string = '', estado: string = '') {
-      this.idPractica = idPractica;
-      this.practicante = practicante;
-      this.codigo = codigo;
-      this.fecha = fecha;
-      this.empresa = empresa;
-      this.linea = linea;
-      this.representanteLegal = representanteLegal;
-      this.estado = estado;
-    }
+  constructor(
+    idPractica: number = 0,
+    nombrePersona: string = '',
+    apellidoPersona: string = '',
+    codigoPersona: string = '',
+    nombreEmpresa: string = '',
+    nombreLinea: string = '',
+    planPlan: string = '',
+    nombreCarrera: string = '',
+    tipoSupervisor: string = '',
+    fechaInicioPractica: string = '',
+    fechaFinPractica: string = '',
+    horasPlanPractica: string = '',
+    notaAcademicaPractica: string = '',
+    notaEmpresarialPractica: string = '',
+    ponderadoFinalPractica: string = '',
+    estadoEstado: string = ''
+  ) {
+    this.idPractica = idPractica;
+    this.nombrePersona = nombrePersona;
+    this.apellidoPersona = apellidoPersona;
+    this.codigoPersona = codigoPersona;
+    this.nombreEmpresa = nombreEmpresa;
+    this.nombreLinea = nombreLinea;
+    this.planPlan = planPlan;
+    this.nombreCarrera = nombreCarrera;
+    this.tipoSupervisor = tipoSupervisor;
+    this.fechaInicioPractica = fechaInicioPractica;
+    this.fechaFinPractica = fechaFinPractica;
+    this.horasPlanPractica = horasPlanPractica;
+    this.notaAcademicaPractica = notaAcademicaPractica;
+    this.notaEmpresarialPractica = notaEmpresarialPractica;
+    this.ponderadoFinalPractica = ponderadoFinalPractica;
+    this.estadoEstado = estadoEstado;
+  }
 }

@@ -17,4 +17,11 @@ export class PracticaDetalleService {
   getDetalleSolicitudById(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
+
+// Actualización del estado (PUT Request)
+actualizarEstado(idPractica: number, idEstadoPPP: number): Observable<any> {
+  const url = `http://localhost:8080/api/practicas/${idPractica}/estado`;
+  return this.http.put(url, { idEstadoPPP });
+}
+
 }
