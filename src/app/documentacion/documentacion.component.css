@@ -1,0 +1,223 @@
+::ng-deep .custom-icon-color .pi-filter-fill {
+  color: orange; /* Cambia el color del ícono a naranja */
+}
+
+
+
+
+/* Alternar colores de las filas del cuerpo para mejor visibilidad */
+.custom-table tbody tr:nth-child(odd) {
+background-color: #ffffff;
+}
+
+.custom-table tbody tr:nth-child(even) {
+background-color: #f0eded;
+}
+
+/* Tamaño más grande para encabezados */
+.custom-table thead th {
+font-size: 14px;
+font-weight: bold;
+}
+
+/* Tamaño más pequeño para los datos */
+.custom-table tbody td {
+font-size: 10.5px;
+}
+
+/* Icono para el estado Aprobado */
+.estado-aprobado {
+color: green; /* Verde para aprobado */
+font-size: 1.5em; /* Tamaño del ícono */
+}
+
+/* Icono para el estado Desaprobado */
+.estado-desaprobado {
+color: red; /* Rojo para desaprobado */
+font-size: 1.5em;
+}
+
+/* Icono para el estado Pendiente */
+.estado-pendiente {
+color: orange; /* Naranja para pendiente */
+font-size: 1.5em;
+}
+
+/* Ícono del ojo */
+.icono-ojo i {
+color: #00bfff; /* Color celeste */
+font-size: 1.5em; /* Tamaño del ícono */
+transition: transform 0.2s, color 0.2s; /* Transiciones para animaciones */
+}
+
+.icono-ojo i:hover {
+color: #007acc; /* Color más oscuro al pasar el mouse */
+transform: scale(1.2); /* Aumenta ligeramente el tamaño */
+}
+
+/* Estilos generales para la tabla */
+.p-table {
+  width: 100%;
+  border-spacing: 0;
+  margin-bottom: 20px;
+}
+
+.p-table th {
+  background-color: #f5f5f5;
+  text-align: left;
+  padding: 12px 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.p-table td {
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.p-table .pi {
+  font-size: 1.2em; /* Iconos más grandes */
+}
+
+.p-button {
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+
+
+
+
+
+
+/* Estilo para el cuadro del formulario (diálogo) */
+.p-dialog {
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Título del cuadro de diálogo */
+.p-dialog .p-dialog-header {
+  background-color: #007bff; /* Color de fondo azul */
+  color: white; /* Texto blanco */
+  font-size: 18px; /* Tamaño de fuente */
+  font-weight: bold; /* Texto en negrita */
+  border-radius: 8px 8px 0 0; /* Bordes redondeados solo en la parte superior */
+}
+
+/* Fondo del formulario */
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem; /* Espaciado entre columnas */
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #f4f7f8; /* Fondo claro con matiz */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cada campo de formulario */
+.p-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.p-field label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.p-field input {
+  padding: 0.8rem;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+.p-field input:focus {
+  border-color: #007bff; /* Cambio de color al enfocar */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra sutil al enfocar */
+}
+
+/* Estilo para los botones */
+.p-button {
+  background-color: #28a745; /* Fondo verde */
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.p-button:hover {
+  background-color: #218838; /* Verde más oscuro al pasar el ratón */
+  transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+}
+
+/* Estilo para el botón de cancelar */
+.p-button[type="button"] {
+  background-color: #dc3545; /* Rojo para cancelar */
+}
+
+.p-button[type="button"]:hover {
+  background-color: #c82333; /* Rojo más oscuro */
+}
+
+/* Contenedor para los botones */
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Personalización de los íconos */
+.pi {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.pi:hover {
+  transform: scale(1.1); /* Escala el icono al pasar el ratón */
+}
+
+/* Estilos de la tabla */
+.p-table {
+  width: 100%;
+  border-spacing: 0;
+  margin-bottom: 20px;
+}
+
+.p-table th {
+  background-color: #f5f5f5;
+  text-align: left;
+  padding: 12px 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.p-table td {
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.p-table .pi {
+  font-size: 1.2em; /* Iconos más grandes */
+}
+
+.custom-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f0eded;
+}

@@ -1,0 +1,145 @@
+<div style="display: flex; height: 100vh;">
+    <!-- Main Content with Table -->
+    <div style="flex-grow: 1; padding: 1px;">
+      <!-- input de buscar solicitud -->
+      <div style="display: flex; align-items: center;">
+        <div style="position: relative; width: 300px;">
+        </div>
+        <p-button [text]="true" [raised]="true" [plain]="true" label="Registrar" icon="pi pi-filter-fill"
+                  [ngStyle]="{ 'margin-left': '20px', 'padding': '10px', 'width': '100px' }"
+                  class="custom-icon-color" (click)="abrirModal()"> <!-- Abrir modal -->
+        </p-button>
+      </div>
+      <table style="width: 100%; margin-top: 30px; border-collapse: collapse;" class="custom-table">
+        <thead>
+          <tr style="background-color: #f4a261; color: white;">
+            <th style="padding: 5px;">Empresa</th>
+            <th style="padding: 5px;">RUC</th>
+            <th style="padding: 1px;">TELEFONO</th>
+            <th style="padding: 1px;">CORREO</th>
+            <th style="padding: 1px;">DIRECCION</th>
+            <th style="padding: 1px;">DEPARTAMENTO</th>
+            <th style="padding: 5px;">PROVINCIA</th>
+            <th style="padding: 5px;">DISTRITO</th>
+            <th style="padding: 1px;">REPRESENTANTE</th>
+            <th style="padding: 1px;">CARGO</th>
+            <th style="padding: 1px;">CORREO</th>
+            <th style="padding: 1px;">TELEFONO</th>
+            <th style="padding: 1px;">ACCIONES</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          
+          <tr *ngFor="let empresa of empresas" style="text-align: center;">
+            <td style="padding: 10px;">{{ empresa.nombreEmpresa }}</td> 
+            <td style="padding: 10px;">{{ empresa.rucEmpresa }}</td>
+
+            <td style="padding: 10px;">{{ empresa.telefonoEmpresa }}</td> <!-- Fecha por defecto -->
+            <td style="padding: 10px;">{{ empresa.correoEmpresa }}</td>
+            <td style="padding: 10px;">{{ empresa.direccionEmpresa }}</td>
+            <td style="padding: 10px;">{{ empresa.departamentoUbigeo }}</td>
+            
+            <td style="padding: 10px;">{{ empresa.provinciaUbigeo }}</td>
+            <td style="padding: 10px;">{{ empresa.distritoUbigeo }}</td>
+            <td style="padding: 10px;">{{ empresa.nombreRepresentante }}</td>
+            <td style="padding: 10px;">{{ empresa.cargoRepresentante }}</td>
+            <td style="padding: 10px;">{{ empresa.correoRepresentante }}</td>
+            <td style="padding: 10px;">{{ empresa.telefonoRepresentante }}</td>
+            <td>
+              <div class="button-container">
+              <p-button [rounded]="true"  icon="pi pi-pencil" (click)="onEdit(empresa)" ></p-button>
+              <p-button [rounded]="true"  icon="pi pi-trash" (click)="onDelete(empresa.id)" ></p-button>
+              
+            </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+
+  <p-dialog header="Editar Empresa" [(visible)]="displayDialog" [modal]="true" [responsive]="true" [style]="{width: '50vw'}">
+    <div *ngIf="empresaEditada">
+      <form (ngSubmit)="onSave()" >
+        <h3>Datos de la Empresa:</h3>
+        <div class="form-container">
+        <div class="p-field">
+          <label for="nombreEmpresa">Nombre de Empresa</label>
+          <input id="nombreEmpresa" [(ngModel)]="empresaEditada.nombreEmpresa" name="nombreEmpresa" required />
+        </div>
+        <div class="p-field">
+          <label for="rucEmpresa">RUC</label>
+          <input id="rucEmpresa" [(ngModel)]="empresaEditada.rucEmpresa" name="rucEmpresa" required />
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="p-field">
+          <label for="telefonoEmpresa">Teléfono</label>
+          <input id="telefonoEmpresa" [(ngModel)]="empresaEditada.telefonoEmpresa" name="telefonoEmpresa" required />
+        </div>
+        <div class="p-field">
+          <label for="correoEmpresa">Correo Electronico</label>
+          <input id="correoEmpresa" [(ngModel)]="empresaEditada.correoEmpresa" name="correoEmpresa" required />
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="p-field">
+          <label for="departamentoUbigeo">Departamento</label>
+          <input id="departamentoUbigeo" [(ngModel)]="empresaEditada.departamentoUbigeo" name="departamentoUbigeo" required />
+        </div>
+        <div class="p-field">
+          <label for="provinciaUbigeo">Provincia</label>
+          <input id="provinciaUbigeo" [(ngModel)]="empresaEditada.provinciaUbigeo" name="provinciaUbigeo" required />
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="p-field">
+          <label for="distritoUbigeo">Distrito</label>
+          <input id="distritoUbigeo" [(ngModel)]="empresaEditada.distritoUbigeo" name="distritoUbigeo" required />
+        </div>
+        <div class="p-field">
+          <label for="direccionEmpresa">Direccion</label>
+          <input id="direccionEmpresa" [(ngModel)]="empresaEditada.direccionEmpresa" name="direccionEmpresa" required />
+        </div>
+      </div>
+      
+      <h3>Datos de la Empresa:</h3>
+      <div class="form-container">
+        <div class="p-field">
+          <label for="nombreRepresentante">Nombres</label>
+          <input id="nombreRepresentante" [(ngModel)]="empresaEditada.nombreRepresentante" name="nombreRepresentante" required />
+        </div>
+        <div class="p-field">
+          <label for="cargoRepresentante">Cargo</label>
+          <input id="cargoRepresentante" [(ngModel)]="empresaEditada.cargoRepresentante" name="cargoRepresentante" required />
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="p-field">
+          <label for="correoRepresentante">Correo Electronico</label>
+          <input id="correoRepresentante" [(ngModel)]="empresaEditada.correoRepresentante" name="correoRepresentante" required />
+        </div>
+        <div class="p-field">
+          <label for="telefonoRepresentante">Telefono</label>
+          <input id="telefonoRepresentante" [(ngModel)]="empresaEditada.telefonoRepresentante" name="telefonoRepresentante" required />
+        </div>
+      </div>
+      <br>
+        <button pButton type="submit" label="Guardar" icon="pi pi-check"></button>
+        <button pButton type="button" label="Cancelar" icon="pi pi-times" (click)="onCancel()"></button>
+        
+      </form>
+    </div>
+  </p-dialog>
+  
+        
+  
+  
+  
+
+  <!-- Modal -->
+  <app-empresa *ngIf="modalAbierto" (close)="cerrarModal()"></app-empresa>
+  
+  

@@ -3,6 +3,7 @@ import { DocumentacionComponent } from './documentacion/documentacion.component'
 import { ReporteComponent } from './reporte/reporte.component';
 import { PracticaComponent } from './practica/practica.component';
 import { PracticaDetalleComponent } from './practica-detalle/practica-detalle.component';
+import { EmpresaComponent } from './empresa/empresa.component';
 
 export const routes: Routes = [
     { 
@@ -21,6 +22,10 @@ export const routes: Routes = [
     { 
         path: 'documentacion', 
         component: DocumentacionComponent
+    },
+    { 
+        path: 'empresa', 
+        component: EmpresaComponent
     },
     { 
         path: 'reporte', 
